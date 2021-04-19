@@ -10,3 +10,9 @@ body {
 .canvas-container {
     text-align: center;
 }
+
+
+.gallery-item {
+    width: 200px;
+    height: 200px;
+}
