@@ -1,7 +1,7 @@
 var gKeywords = { 'happy': 12, 'funny puk': 1 }
 var gImgs = [
-    { id: 1, url: '/imgs/1.jpg', keywords: ['love']},
-    { id: 2, url: '/imgs/2.jpg', keywords: ['love']}
+    { id: 1, url: 'imgs/1.jpg', keywords: ['love']},
+    { id: 2, url: 'imgs/2.jpg', keywords: ['love']}
 ];
 
 

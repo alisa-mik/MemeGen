@@ -46,7 +46,7 @@ function renderGallery() {
     
 gImgs.forEach( function (obj) {
     strHTML +=
-    `<img class="gallery-item" src="/imgs/${obj.id}.jpg" alt="img" onclick="onSelectPhoto(${obj.id})">`
+    `<img class="gallery-item" src="imgs/${obj.id}.jpg" alt="img" onclick="onSelectPhoto(${obj.id})">`
 })
     var elGallery = document.querySelector('.gallery-container')
     elGallery.innerHTML = strHTML
