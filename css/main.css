@@ -10,10 +10,3 @@ body {
 .canvas-container {
     text-align: center;
 }
-
-/* helpers */
-
-.flex {
-    display:flex;
-}
-

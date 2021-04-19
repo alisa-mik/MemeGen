@@ -5,16 +5,21 @@ function onInit() {
     gCanvas = document.getElementById('canvas')
     // console.log(gCanvas);
     gCtx = gCanvas.getContext('2d')
-    drawImg()
+    drawImg2(1)
+    drawText('kouko', 100, 100)
 }
 
-function drawImg() {
-    var elImg = document.querySelector('img')
-    console.log(elImg);
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
+
+function drawImg2(imgId) {
+    var img = new Image()
+    img.src = getImgById(imgId);
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+    }
 }
 
 function drawText(text, x, y) {
+    console.log(text);
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'red'
     gCtx.fillStyle = 'white'
@@ -24,11 +29,3 @@ function drawText(text, x, y) {
     gCtx.strokeText(text, x, y)
 }
 
-
-function getImgById(imgId) {
-    var img = gImgs.find(function (img) {
-        return imgId === img.id
-    })
-    return img.url
-}
-console.log(getImgById(1));
