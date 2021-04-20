@@ -12,8 +12,10 @@
 
 <body onload="onInit()">
 
-    <header class="flex space-between align-center" >
-        <div class="logo"><h1>Memes</h1></div>
+    <header class="flex space-between align-center">
+        <div class="logo">
+            <h1>Memes</h1>
+        </div>
         <ul class="main-nav flex space-between align-center clean-list">
             <li><a class="flex justify-content align-center" href="#">Memes</a></li>
             <li><a class="flex justify-content align-center" href="#">Gallery</a></li>
@@ -25,12 +27,16 @@
         <div class="canvas-container">
             <canvas id="canvas" height="450" width="450"></canvas>
         </div>
-  
+
         <div class="editor-container">
-            <input placeholder="type here" type="text" name="txt">
+            <input class="input-txt" placeholder="type here" type="text" name="txt">
             <button class="add" onclick="onAddLine()">Add</button>
             <button class="incrsFont" onclick="onIncreaseFont()">A+</button>
             <button class="dcrsFont" onclick="onDecreaseFont()">A-</button>
+            <div>
+                <input type="color" name="color" value="#d3d3d3" onchange="onChangeTextColor()">
+                <label for="color">Text Color</label>
+            </div>
         </div>
     </div>
     <hr>

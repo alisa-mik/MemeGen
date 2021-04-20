@@ -44,37 +44,48 @@ function onSelectPhoto(imgId) {
 
 function renderContent() {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    drawText(getLine(), 200, 70)
+    // drawText(getLine(), 200, 70)
+    drawText(0, 200, 70)
+    if (gMeme.lines.length === 2) {
+        drawText(1, 200, 390 )
+    } else if (gMeme.lines.length > 2){
+        drawText(1, 200, 360)
+        drawText(2, 200, 410)
+    }
 }
 
-function drawText(text, x, y) {
+function drawText(idx, x, y) {
+   var currLine = gMeme.lines[idx]
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'red'
-    gCtx.fillStyle = 'white'
-    gCtx.font = '40px Impact'
+    gCtx.strokeStyle = currLine.color
+    gCtx.fillStyle = currLine.color
+    gCtx.font = currLine.size.toString() + 'px Impact'
     gCtx.textAlign = 'center'
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(currLine.txt, x, y)
+    gCtx.strokeText(currLine.txt, x, y)
+
 }
 
 // Editor functions 
 
 // text edits
 
-function onIncreaseFont(selectedLineIdx) {
-    gMeme.lines[gMeme.selectedLineIdx].size ++
+function onIncreaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size += 3
     renderContent()
-
 }
 
 function onDecreaseFont() {
-    gMeme.lines[gMeme.selectedLineIdx].size --
+    gMeme.lines[gMeme.selectedLineIdx].size -=3
     renderContent()
 }
 
-function getFontSize() {
-    gMeme.lines[selectedLineIdx].size.toString()
+function onChangeTextColor() {
+    var color = document.querySelector("input[name='color']").value
+    gMeme.lines[gMeme.selectedLineIdx].color = color 
+    renderContent()
 }
+
 
 // Input line
 

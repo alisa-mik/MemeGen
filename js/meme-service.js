@@ -16,9 +16,9 @@ var gMeme = {
     lines: [
         {
             txt: '',
-            size: 20,
+            size: 40,
             align: 'left',
-            color: 'red'
+            color: '#d3d3d3'
         }
     ]
 }
@@ -30,11 +30,11 @@ function getImgById(imgId) {
     return img.url
 }
 
-function getLine() {
-    var line = gMeme.lines[gMeme.selectedLineIdx].txt
-    console.log(line);
-    return line
-}
+// function getLine() {
+//     var line = gMeme.lines[gMeme.selectedLineIdx].txt
+//     console.log(line);
+//     return line
+// }
 
 
 function addLine() {
@@ -45,7 +45,7 @@ function addLine() {
 function createLine() {
     return {
         txt: '',
-        size: 20,
+        size: 40,
         align: 'left',
         color: 'red'
     }

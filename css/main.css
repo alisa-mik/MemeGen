@@ -9,7 +9,11 @@
 
 body {
     margin: 0;
-    background-color: lightgray;
+    background-color: #d3d3d3;
+}
+
+canvas {
+    border-radius: 20px;
 }
 
 header {
@@ -36,6 +40,7 @@ header {
 .canvas-container {
     text-align: center;
     margin-inline-end: 2rem;
+ 
 }
 
 
@@ -47,7 +52,7 @@ header {
 
 .main-footer {
     height: 200px;
-    background-color:#ff7f00 ;
+    background-color: #ff8000;
     font-family: Montserrat, sans-serif;
 }
 .footer-logo {
