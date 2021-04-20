@@ -23,11 +23,11 @@ function loadImage(imgId) {
 
 function renderGallery() {
     var strHTML = ''
-    
-gImgs.forEach( function (obj) {
-    strHTML +=
-    `<img class="gallery-item" src="imgs/${obj.id}.jpg" alt="img" onclick="onSelectPhoto(${obj.id})">`
-})
+
+    gImgs.forEach(function (obj) {
+        strHTML +=
+            `<img class="gallery-item" src="imgs/${obj.id}.jpg" alt="img" onclick="onSelectPhoto(${obj.id})">`
+    })
     var elGallery = document.querySelector('.gallery-container')
     elGallery.innerHTML = strHTML
 
@@ -44,30 +44,62 @@ function onSelectPhoto(imgId) {
 
 function renderContent() {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    // drawText(getLine(), 200, 70)
-    drawText(0, 200, 70)
+    drawText(0, 70)
     if (gMeme.lines.length === 2) {
-        drawText(1, 200, 390 )
-    } else if (gMeme.lines.length > 2){
-        drawText(1, 200, 360)
-        drawText(2, 200, 410)
+        drawText(1, 410)
+    } else if (gMeme.lines.length > 2) {
+        drawText(1, 360)
+        drawText(2, 410)
     }
 }
 
-function drawText(idx, x, y) {
-   var currLine = gMeme.lines[idx]
+function drawText(idx, y) {
+    var currLine = gMeme.lines[idx]
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = currLine.color
+    gCtx.strokeStyle = (idx === gMeme.selectedLineIdx) ? 'red' : 'black'
     gCtx.fillStyle = currLine.color
     gCtx.font = currLine.size.toString() + 'px Impact'
-    gCtx.textAlign = 'center'
-    gCtx.fillText(currLine.txt, x, y)
-    gCtx.strokeText(currLine.txt, x, y)
-
+    gCtx.textAlign = currLine.align
+    gCtx.fillText(currLine.txt, currLine.x, y)
+    gCtx.strokeText(currLine.txt, currLine.x, y)
 }
 
 // Editor functions 
 
+// Input line
+var input = document.querySelector('input')
+input.addEventListener('input', updateText)
+
+
+//add line using ENTER
+// input.addEventListener('keyup', function(event) {
+
+//   if (event.keyCode === 13) {
+//     event.preventDefault();
+//     document.querySelector('.add').click()
+//   }
+// })
+
+function updateText(e) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = e.target.value;
+    renderContent()
+}
+
+function onAddLine() {
+    if (gMeme.lines.length === 3) return
+    document.querySelector('input').value = ''
+    addLine()
+    gMeme.selectedLineIdx++
+    console.log(gMeme.lines);
+}
+
+function onSwitchLine() {
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx === gMeme.lines.length) {
+        gMeme.selectedLineIdx = 0
+    }
+renderContent()
+}
 // text edits
 
 function onIncreaseFont() {
@@ -76,31 +108,39 @@ function onIncreaseFont() {
 }
 
 function onDecreaseFont() {
-    gMeme.lines[gMeme.selectedLineIdx].size -=3
+    gMeme.lines[gMeme.selectedLineIdx].size -= 3
     renderContent()
 }
+
+// align
+
+function onAlignCenter() {
+    gMeme.lines[gMeme.selectedLineIdx].align = 'center'
+    gMeme.lines[gMeme.selectedLineIdx].x = canvas.width / 2
+    console.log(canvas.width / 2);
+    renderContent()
+
+}
+function onAlignLeft() {
+    gMeme.lines[gMeme.selectedLineIdx].align = 'left'
+    gMeme.lines[gMeme.selectedLineIdx].x = 15
+    renderContent()
+
+}
+
+function onAlignRight() {
+    gMeme.lines[gMeme.selectedLineIdx].align = 'right'
+    gMeme.lines[gMeme.selectedLineIdx].x = canvas.width - 15
+    renderContent()
+
+}
+
+// text color
 
 function onChangeTextColor() {
     var color = document.querySelector("input[name='color']").value
-    gMeme.lines[gMeme.selectedLineIdx].color = color 
+    gMeme.lines[gMeme.selectedLineIdx].color = color
     renderContent()
 }
 
 
-// Input line
-
-var input = document.querySelector('input');
-
-input.addEventListener('input', updateText);
-
-function updateText(e) {
-  gMeme.lines[gMeme.selectedLineIdx].txt = e.target.value;
-  renderContent()
-}
-
-function onAddLine() {
-    document.querySelector('input').value = ''
-    addLine()
-    gMeme.selectedLineIdx++
-    console.log(gMeme.lines);
-}

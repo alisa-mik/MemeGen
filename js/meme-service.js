@@ -6,7 +6,18 @@ var gImgs = [
     { id: 4, url: 'imgs/4.jpg', keywords: ['love'] },
     { id: 5, url: 'imgs/5.jpg', keywords: ['love'] },
     { id: 6, url: 'imgs/6.jpg', keywords: ['love'] },
-    { id: 7, url: 'imgs/7.jpg', keywords: ['love'] }
+    { id: 7, url: 'imgs/7.jpg', keywords: ['love'] },
+    { id: 8, url: 'imgs/8.jpg', keywords: ['love'] },
+    { id: 9, url: 'imgs/9.jpg', keywords: ['love'] },
+    { id: 10, url: 'imgs/10.jpg', keywords: ['love'] },
+    { id: 11, url: 'imgs/11.jpg', keywords: ['love'] },
+    { id: 12, url: 'imgs/12.jpg', keywords: ['love'] },
+    { id: 13, url: 'imgs/13.jpg', keywords: ['love'] },
+    { id: 14, url: 'imgs/14.jpg', keywords: ['love'] },
+    { id: 15, url: 'imgs/15.jpg', keywords: ['love'] },
+    { id: 16, url: 'imgs/16.jpg', keywords: ['love'] },
+    { id: 17, url: 'imgs/17.jpg', keywords: ['love'] },
+    { id: 18, url: 'imgs/18.jpg', keywords: ['love'] }
 ];
 
 
@@ -17,8 +28,12 @@ var gMeme = {
         {
             txt: '',
             size: 40,
-            align: 'left',
-            color: '#d3d3d3'
+            align: 'center',
+            color: '#d3d3d3',
+            strokeStyle: 'black',
+            x: 225,
+            y: 30
+
         }
     ]
 }
@@ -46,7 +61,10 @@ function createLine() {
     return {
         txt: '',
         size: 40,
-        align: 'left',
-        color: 'red'
+        align: 'center',
+        color: '#d3d3d3',
+        strokeStyle: 'black',
+        x: 225,
+        y: 30
     }
 }

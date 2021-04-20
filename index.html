@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,16 +29,30 @@
             <canvas id="canvas" height="450" width="450"></canvas>
         </div>
 
-        <div class="editor-container">
-            <input class="input-txt" placeholder="type here" type="text" name="txt">
+        <section class="control-box">
+
+            <div><input class="input-txt" placeholder="type here" type="text" name="txt"></div>
+
+
+            <button><i class="fa fa-arrow-up"></i></button>
+            <button><i class="fa fa-arrow-down"></i></button>
             <button class="add" onclick="onAddLine()">Add</button>
-            <button class="incrsFont" onclick="onIncreaseFont()">A+</button>
-            <button class="dcrsFont" onclick="onDecreaseFont()">A-</button>
-            <div>
-                <input type="color" name="color" value="#d3d3d3" onchange="onChangeTextColor()">
-                <label for="color">Text Color</label>
+            <button class="switch" onclick="onSwitchLine()">&#8693</button>
+            <button><i class="fa fa-trash" onclick="onRemoveLine()"></i></button>
+
+            <div class="textAdjust">
+                <button class="incrsFont" onclick="onIncreaseFont()">A+</button>
+                <button class="dcrsFont" onclick="onDecreaseFont()">A-</button>
+                <button><i class="fa fa-align-left" onclick="onAlignLeft()"></i></button>
+                <button><i class="fa fa-align-center" onclick=onAlignCenter()></i></button>
+                <button><i class="fa fa-align-right" onclick=onAlignRight()></i></button>
             </div>
-        </div>
+            <div class="color-picker">
+                <input type="color" name="color" value="#d3d3d3" onchange="onChangeTextColor()">
+                <label class="lb-color" for="color">Text Color</label>
+            </div>
+
+        </section>
     </div>
     <hr>
 
@@ -48,7 +63,7 @@
     <footer class="main-footer flex align-center justify-content display-column">
 
         <div class="footer-logo ">Memes</div>
-        <small>© 2014 Blogin.com - All Rights Reserved - Find more free Templates at Pixelhint.com</small>
+        <small>© 2021- All Rights Reserved To ME</small>
     </footer>
     <script src="js/storage-services.js"></script>
     <script src="js/meme-service.js"></script>

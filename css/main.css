@@ -1,9 +1,13 @@
 * {
     box-sizing: border-box;
 }
+@font-face {
+    font-family: Architect;
+    src: url(/fonts/ArchitectsDaughter-Regular.ttf);
+}
 
 @font-face {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact;
     src: url(/fonts/impact.ttf);
 }
 
@@ -13,14 +17,15 @@ body {
 }
 
 canvas {
-    border-radius: 20px;
+    border-radius: 30px;
 }
 
 header {
     background-color: #ff7f00;
+    border-bottom: 10px solid orange;
     color: whitesmoke;
     margin-bottom: 20px;
-    font-family: Montserrat, sans-serif;
+    font-family: Architect, sans-serif;
 }
 .logo {
     margin-inline-start: 3rem;
@@ -29,7 +34,7 @@ header {
 }
 
 .main-nav a {
-    font-family: Montserrat, sans-serif;
+    font-family: Architect, sans-serif;
     color: whitesmoke;
     text-decoration: none;
     list-style: none;
@@ -43,21 +48,23 @@ header {
  
 }
 
-
+.gallery-container{
+    text-align: center;
+}
 .gallery-item {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
+    margin: 3px;
 }
 
-
 .main-footer {
-    height: 200px;
+    height: 120px;
     background-color: #ff8000;
-    font-family: Montserrat, sans-serif;
+    font-family: Architect, sans-serif;
 }
 .footer-logo {
     color: whitesmoke ;
-    margin-bottom: 13px;
+    margin-bottom: 10px;
     font-size: 30px;
     letter-spacing: 3px;
 }
@@ -86,4 +93,40 @@ header {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+button {
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    width: fit-content;
+    padding: 5px;
+    margin: 3px;
+}
+
+.input-txt {
+    margin-bottom: 10px;
+}
+.color-picker {
+    margin-top: 10px;
+}
+
+.fa {
+    font-size: 1.25rem;
+}
+
+@media (max-width: 710px) {
+    .generator-container {
+        flex-direction: column;
+    }
+    canvas {
+        width: 80%;
+        height: 80%;
+        margin-bottom: 10px;
+    }
+    .main-nav {
+        flex-direction: column;
+        font-size: 20px;
+    }
 }
