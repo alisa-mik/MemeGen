@@ -3,12 +3,12 @@
 }
 @font-face {
     font-family: Architect;
-    src: url(fonts/ArchitectsDaughter-Regular.ttf);
+    src: url(../fonts/ArchitectsDaughter-Regular.ttf);
 }
 
 @font-face {
     font-family: Impact;
-    src: url(fonts/impact.ttf);
+    src: url(../fonts/impact.ttf);
 }
 
 body {
@@ -129,4 +129,9 @@ button {
         flex-direction: column;
         font-size: 20px;
     }
+    .canvas-container {
+        text-align: center;
+        margin-inline-end: 0;
+    }
+
 }
