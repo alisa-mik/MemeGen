@@ -2,17 +2,83 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    src: url(/fonts/impact.ttf);
+}
+
 body {
     margin: 0;
     background-color: lightgray;
 }
 
+header {
+    background-color: #ff7f00;
+    color: whitesmoke;
+    margin-bottom: 20px;
+    font-family: Montserrat, sans-serif;
+}
+.logo {
+    margin-inline-start: 3rem;
+    font-size: 1.125rem;
+    letter-spacing: 3px;
+}
+
+.main-nav a {
+    font-family: Montserrat, sans-serif;
+    color: whitesmoke;
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+    width: 100px;
+}
+
 .canvas-container {
     text-align: center;
+    margin-inline-end: 2rem;
 }
 
 
 .gallery-item {
     width: 200px;
     height: 200px;
+}
+
+
+.main-footer {
+    height: 200px;
+    background-color:#ff7f00 ;
+    font-family: Montserrat, sans-serif;
+}
+.footer-logo {
+    color: whitesmoke ;
+    margin-bottom: 13px;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-content{
+    justify-content: center;
+}
+
+.display-column {
+    flex-direction: column;
+}
+
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }

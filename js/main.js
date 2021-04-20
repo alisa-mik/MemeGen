@@ -1,45 +1,25 @@
 var gCanvas;
 var gCtx;
+var img;
+
+// On Load
 
 function onInit() {
     gCanvas = document.getElementById('canvas')
     gCtx = gCanvas.getContext('2d')
-    drawImg2(gMeme.selectedImgId)
+    loadImage(gMeme.selectedImgId)
     renderGallery()
-
 }
 
-function drawImg2(imgId) {
-    var img = new Image()
+function loadImage(imgId) {
+    img = new Image()
     img.src = getImgById(imgId);
     img.onload = () => {
-        renderContent(img)
+        renderContent()
     }
 }
 
-function renderContent(img) {
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    drawText(getLine(), 200, 70)
-}
-
-function drawText(text, x, y) {
-    // console.log(text);
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'red'
-    gCtx.fillStyle = 'white'
-    gCtx.font = '40px Arial'
-    gCtx.textAlign = 'center'
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
-}
-
-function onAddLine() {
-    var newLine = document.querySelector('input[name="txt"]').value
-    console.log(newLine)
-    addLine(newLine)
-    drawImg2(gMeme.selectedImgId)
-    console.log(gMeme.lines);
-}
+// Gallery
 
 function renderGallery() {
     var strHTML = ''
@@ -53,20 +33,63 @@ gImgs.forEach( function (obj) {
 
 }
 
+// selecting photo from gallery
+
 function onSelectPhoto(imgId) {
-    console.log(imgId);
     gMeme.selectedImgId = imgId
-    drawImg2(imgId)
-    clearCanvas()
-    
+    loadImage(imgId)
 }
 
-function clearCanvas() {
-    gCanvas = document.getElementById('canvas')
-    console.log('clear');
-    gCtx = gCanvas.getContext('2d');
-    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+// Render canvas content
 
+function renderContent() {
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+    drawText(getLine(), 200, 70)
+}
+
+function drawText(text, x, y) {
+    gCtx.lineWidth = 2
+    gCtx.strokeStyle = 'red'
+    gCtx.fillStyle = 'white'
+    gCtx.font = '40px Impact'
+    gCtx.textAlign = 'center'
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
+}
+
+// Editor functions 
+
+// text edits
+
+function onIncreaseFont(selectedLineIdx) {
+    gMeme.lines[gMeme.selectedLineIdx].size ++
+    renderContent()
 
 }
-    
+
+function onDecreaseFont() {
+    gMeme.lines[gMeme.selectedLineIdx].size --
+    renderContent()
+}
+
+function getFontSize() {
+    gMeme.lines[selectedLineIdx].size.toString()
+}
+
+// Input line
+
+var input = document.querySelector('input');
+
+input.addEventListener('input', updateText);
+
+function updateText(e) {
+  gMeme.lines[gMeme.selectedLineIdx].txt = e.target.value;
+  renderContent()
+}
+
+function onAddLine() {
+    document.querySelector('input').value = ''
+    addLine()
+    gMeme.selectedLineIdx++
+    console.log(gMeme.lines);
+}
