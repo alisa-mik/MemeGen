@@ -1,7 +1,7 @@
 var gCanvas;
 var gCtx;
 var img;
-
+var KEY = 'canvas'
 // On Load
 
 function onInit() {
@@ -52,19 +52,19 @@ function onOpenGallery() {
 
 // Render canvas content
 
-function renderContent() {
+function renderContent(isSaved = false) {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     gMeme.lines.forEach(function (line, idx) {
-        drawText(idx)
+        drawText(idx, isSaved)
     })
 }
 
-function drawText(idx) {
+function drawText(idx, isSaved) {
     var currLine = gMeme.lines[idx]
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = (idx === gMeme.selectedLineIdx) ? 'red' : 'black'
+    gCtx.lineWidth = 1.2
+    gCtx.strokeStyle = (idx === gMeme.selectedLineIdx && !isSaved) ? 'red' : 'black'
     gCtx.fillStyle = currLine.color
-    gCtx.font = currLine.size.toString() + 'px Impact'
+    gCtx.font = currLine.size.toString() + 'px' + ' ' + currLine.fontFamily.toString()
     gCtx.textAlign = currLine.align
     gCtx.fillText(currLine.txt, currLine.x, currLine.y)
     gCtx.strokeText(currLine.txt, currLine.x, currLine.y)
@@ -166,7 +166,6 @@ function onAlignRight() {
     gMeme.lines[gMeme.selectedLineIdx].align = 'right'
     gMeme.lines[gMeme.selectedLineIdx].x = canvas.width - 15
     renderContent()
-
 }
 
 // text color
@@ -177,4 +176,16 @@ function onChangeTextColor() {
     renderContent()
 }
 
+function downloadImg(elLink) {
+    renderContent(true)
+    var imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
 
+// text font family
+
+function onSetFontFamily() {
+    var fontFam = document.querySelector('.dropdown').value
+    setFontFamily(fontFam)
+    renderContent()
+}

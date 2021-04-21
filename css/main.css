@@ -56,16 +56,14 @@ a {
     width: 100px;
 }
 
-.top {
-   
+.bttn {
+   color: black;
 }
 .canvas-container {
     text-align: center;
     margin-inline-end: 1rem;
     margin-bottom: 15px;
 }
-
-
 
 .control-box {
     text-align: center;
@@ -86,7 +84,7 @@ a {
 .title {
     font-family: Architect, sans-serif;
     text-align: center;
-   color: #438841;
+   color: #14608b;
    background-color: whitesmoke;
    padding: 5px;
    font-size: 2rem;

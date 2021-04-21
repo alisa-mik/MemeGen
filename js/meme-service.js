@@ -26,12 +26,13 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: '',
-        size: 40,
+        size: 35,
+        fontFamily: 'Impact',
         align: 'center',
-        color: '#d3d3d3',
+        color: '#ffffff',
         strokeStyle: 'black',
-        x: 225,
-        y: 70
+        x: 160,
+        y: 50
 
     }
     ]
@@ -62,22 +63,24 @@ function createLine() {
     if (gMeme.lines.length === 1) {
         return {
             txt: '',
-            size: 40,
+            size: 35,
+            fontFamily: 'Impact',
             align: 'center',
-            color: '#d3d3d3',
+            color: '#ffffff',
             strokeStyle: 'black',
-            x: 225,
-            y: 420
+            x: 160,
+            y: 300
         }
     } else {
         return {
             txt: '',
-            size: 40,
+            size: 35,
+            fontFamily: 'Impact',
             align: 'center',
-            color: '#d3d3d3',
+            color: '#ffffff',
             strokeStyle: 'black',
-            x: 225,
-            y: 225
+            x: 160,
+            y: 160
         }
     }
 }
@@ -85,4 +88,9 @@ function createLine() {
 function removeLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
    
+}
+
+function setFontFamily(font) {
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = font
+    console.log( gMeme.lines[gMeme.selectedLineIdx].fontFamily);
 }
