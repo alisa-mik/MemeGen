@@ -122,6 +122,7 @@ function onAddLine() {
 
 function onRemoveLine() {
     console.log(gMeme.selectedLineIdx);
+    console.log(gMeme.lines);
     if (gMeme.lines.length === 1) return
     removeLine()
     renderContent()

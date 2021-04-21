@@ -83,8 +83,9 @@ function createLine() {
 }
 
 function removeLine() {
+    console.log(gMeme.lines);
     console.log(gMeme.selectedLineIdx);
-    // gMeme.lines.splice(gMeme.lines[gMeme.selectedLineIdx], 1)
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     console.log(gMeme.lines);
 
 }
