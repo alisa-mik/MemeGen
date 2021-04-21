@@ -41,8 +41,13 @@ function onSelectPhoto(imgId) {
     loadImage(imgId)
     var gallery = document.querySelector('.gallery');
     gallery.setAttribute('hidden', true);
-    var generator = document.querySelector('.generator-container')
-    generator.setAttribute('hidden', false);
+    var generator = document.querySelector('.top')
+    generator.removeAttribute('hidden');
+}
+
+function onOpenGallery() {
+    var gallery = document.querySelector('.gallery');
+    gallery.removeAttribute('hidden');
 }
 
 // Render canvas content
@@ -82,7 +87,6 @@ input.addEventListener('input', updateText)
 // })
 
 function updateText(e) {
-    console.log(gMeme.selectedLineIdx);
     gMeme.lines[gMeme.selectedLineIdx].txt = e.target.value;
     renderContent()
 }
@@ -108,7 +112,6 @@ function onSwitchLine() {
         gMeme.selectedLineIdx = 0
     }
     input.value = gMeme.lines[gMeme.selectedLineIdx].txt
-    console.log(gMeme.lines[gMeme.selectedLineIdx]);
     renderContent()
 }
 
@@ -125,6 +128,8 @@ function onRemoveLine() {
     console.log(gMeme.lines);
     if (gMeme.lines.length === 1) return
     removeLine()
+    gMeme.selectedLineIdx=0
+    input.value = gMeme.lines[gMeme.selectedLineIdx].txt
     renderContent()
 }
 

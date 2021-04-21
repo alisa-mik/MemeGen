@@ -23,8 +23,8 @@ canvas {
 }
 
 header {
-    background-color: #ff7f00;
-    border-bottom: 10px solid orange;
+    background-color: #438841;
+    border-bottom: 10px solid#abacab;
     color: whitesmoke;
     margin-bottom: 20px;
     font-family: Architect, sans-serif;
@@ -33,6 +33,12 @@ header {
     margin-inline-start: 3rem;
     font-size: 1.125rem;
     letter-spacing: 3px;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+
 }
 
 .main-nav a {
@@ -72,11 +78,15 @@ header {
 .title {
     font-family: Architect, sans-serif;
     text-align: center;
-   color: #ff7f00;
+   color: #438841;
    background-color: whitesmoke;
    padding: 5px;
    font-size: 2rem;
 
+}
+
+.gallery {
+    margin-top: 15px;
 }
 .gallery-container{
     background-color: whitesmoke;
@@ -90,12 +100,13 @@ header {
 .gallery-item {
     width: 100px;
     height: 100px;
+    cursor: pointer;
 
 }
 
 .main-footer {
     height: 120px;
-    background-color: #ff8000;
+    background-color: #438841;
     font-family: Architect, sans-serif;
 }
 .footer-logo {
@@ -159,6 +170,7 @@ button {
 
 .text-style {
     display: inline-block;
+    cursor: pointer;
 }
 
 .fa {
@@ -183,4 +195,11 @@ button {
         margin-inline-end: 0;
     }
 
+}
+
+
+.meme-gallery {
+
+    max-width: 920px;
+    height: 400px;
 }
