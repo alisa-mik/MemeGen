@@ -84,5 +84,5 @@ function createLine() {
 
 function removeLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
-    gMeme.selectedLineIdx=0
+   
 }

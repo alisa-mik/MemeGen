@@ -13,9 +13,13 @@
 
 <body onload="onInit()">
 
+
+
     <header class="flex space-between align-center">
         <div class="logo">
-            <a href="index.html"><h1>Memes</h1></a>
+            <a href="index.html">
+                <h1>Memes</h1>
+            </a>
         </div>
         <ul class="main-nav flex space-between align-center clean-list">
             <li><a class="flex justify-content align-center" href="saved-memes.html">Memes</a></li>
@@ -24,52 +28,52 @@
         </ul>
     </header>
 
-    <div class="top" hidden> 
-    <div class="generator-container flex justify-content align-center">
-        <div class="canvas-container">
-            <canvas id="canvas" height="450" width="450"></canvas>
+    <div class="top" hidden>
+        <div class="generator-container flex justify-content align-center">
+            <div class="canvas-container">
+                <canvas id="canvas" height="450" width="450"></canvas>
+            </div>
+
+            <section class="control-box">
+
+                <div><input class="input-txt" placeholder="type here" type="text" name="txt"></div>
+
+
+                <button><i class="fa fa-arrow-up" onclick="onMoveLineUp()"></i></button>
+                <button><i class="fa fa-arrow-down" onclick="onMoveLineDown()"></i></button>
+                <button class="switch" onclick="onSwitchLine()">&#8693</button>
+                <button class="add" onclick="onAddLine()">Add New Line</button>
+                <button><i class="fa fa-trash" onclick="onRemoveLine()"></i></button>
+
+                <div class="textAdjust">
+                    <button class="incrsFont" onclick="onIncreaseFont()">A+</button>
+                    <button class="dcrsFont" onclick="onDecreaseFont()">A-</button>
+                    <button><i class="fa fa-align-left" onclick="onAlignLeft()"></i></button>
+                    <button><i class="fa fa-align-center" onclick=onAlignCenter()></i></button>
+                    <button><i class="fa fa-align-right" onclick=onAlignRight()></i></button>
+                </div>
+                <div class="text-style">
+                    <select name="dropdown">
+                        <option value="Impact" selected>IMPACT</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Georgia">Georgia</option>
+                    </select>
+                </div>
+                <div class="color-picker">
+                    <input type="color" name="color" value="#ffffff" onchange="onChangeTextColor()">
+                    <label class="lb-color" for="color">Text Color</label>
+                </div>
+
+                <div class="save">
+                    <button class="save-meme">Save</button>
+                    <button class="download">Download</button>
+
+                </div>
+
+            </section>
         </div>
 
-        <section class="control-box">
-
-            <div><input class="input-txt" placeholder="type here" type="text" name="txt"></div>
-
-
-            <button><i class="fa fa-arrow-up" onclick="onMoveLineUp()"></i></button>
-            <button><i class="fa fa-arrow-down" onclick="onMoveLineDown()"></i></button>
-            <button class="switch" onclick="onSwitchLine()">&#8693</button>
-            <button class="add" onclick="onAddLine()">Add New Line</button>
-            <button><i class="fa fa-trash" onclick="onRemoveLine()"></i></button>
-
-            <div class="textAdjust">
-                <button class="incrsFont" onclick="onIncreaseFont()">A+</button>
-                <button class="dcrsFont" onclick="onDecreaseFont()">A-</button>
-                <button><i class="fa fa-align-left" onclick="onAlignLeft()"></i></button>
-                <button><i class="fa fa-align-center" onclick=onAlignCenter()></i></button>
-                <button><i class="fa fa-align-right" onclick=onAlignRight()></i></button>
-            </div>
-            <div class="text-style">
-                <select name="dropdown">
-                    <option value="Impact" selected>IMPACT</option>
-                    <option value="Arial">Arial</option>
-                    <option value="Verdana">Verdana</option>
-                    <option value="Georgia">Georgia</option>
-                </select>
-            </div>
-            <div class="color-picker">
-                <input type="color" name="color" value="#ffffff" onchange="onChangeTextColor()">
-                <label class="lb-color" for="color">Text Color</label>
-            </div>
-
-            <div class="save">
-                <button class="save-meme">Save</button>
-                <button class="download">Download</button>
-
-            </div>
-
-        </section>
-    </div>
-       
     </div>
 
 
@@ -86,6 +90,7 @@
         <div class="footer-logo ">Memes</div>
         <small>© 2021- All Rights Reserved To ME</small>
     </footer>
+
     <script src="js/storage-services.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/main.js"></script>
