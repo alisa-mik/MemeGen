@@ -34,10 +34,10 @@
             <div><input class="input-txt" placeholder="type here" type="text" name="txt"></div>
 
 
-            <button><i class="fa fa-arrow-up"></i></button>
-            <button><i class="fa fa-arrow-down"></i></button>
-            <button class="add" onclick="onAddLine()">Add</button>
+            <button><i class="fa fa-arrow-up" onclick="onMoveLineUp()"></i></button>
+            <button><i class="fa fa-arrow-down" onclick="onMoveLineDown()"></i></button>
             <button class="switch" onclick="onSwitchLine()">&#8693</button>
+            <button class="add" onclick="onAddLine()">Add New Line</button>
             <button><i class="fa fa-trash" onclick="onRemoveLine()"></i></button>
 
             <div class="textAdjust">
@@ -47,18 +47,32 @@
                 <button><i class="fa fa-align-center" onclick=onAlignCenter()></i></button>
                 <button><i class="fa fa-align-right" onclick=onAlignRight()></i></button>
             </div>
+            <div class="text-style">
+                <select name="dropdown">
+                    <option value="Impact" selected>IMPACT</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                </select>
+            </div>
             <div class="color-picker">
-                <input type="color" name="color" value="#d3d3d3" onchange="onChangeTextColor()">
+                <input type="color" name="color" value="#ffffff" onchange="onChangeTextColor()">
                 <label class="lb-color" for="color">Text Color</label>
             </div>
 
         </section>
-    </div>
-    <hr>
 
-    <div class="gallery-container">
+       
     </div>
 
+
+    <section class="gallery">
+        <div class="title">
+            Pick a photo to get Started! </div>
+        <div class="gallery-container grid ">
+
+        </div>
+    </section>
 
     <footer class="main-footer flex align-center justify-content display-column">
 

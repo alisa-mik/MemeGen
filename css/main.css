@@ -14,6 +14,8 @@
 body {
     margin: 0;
     background-color: #d3d3d3;
+    text-align: center;
+   
 }
 
 canvas {
@@ -34,6 +36,7 @@ header {
 }
 
 .main-nav a {
+    font-size: 1.5rem;
     font-family: Architect, sans-serif;
     color: whitesmoke;
     text-decoration: none;
@@ -45,16 +48,49 @@ header {
 .canvas-container {
     text-align: center;
     margin-inline-end: 2rem;
- 
+    margin-bottom: 15px;
 }
 
-.gallery-container{
+
+
+.control-box {
     text-align: center;
+}
+
+.input-txt {
+    font-size: 1rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+}
+
+.textAdjust {
+    margin-bottom: 5px;
+}
+
+
+.title {
+    font-family: Architect, sans-serif;
+    text-align: center;
+   color: #ff7f00;
+   background-color: whitesmoke;
+   padding: 5px;
+   font-size: 2rem;
+
+}
+.gallery-container{
+    background-color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill,100px);
+    gap: 3px;
+    padding: 5px;
+  
 }
 .gallery-item {
     width: 100px;
     height: 100px;
-    margin: 3px;
+
 }
 
 .main-footer {
@@ -68,6 +104,14 @@ header {
     font-size: 30px;
     letter-spacing: 3px;
 }
+
+
+/* helpers */
+
+.grid {
+    display: grid;
+}
+
 .flex {
     display: flex;
 }
@@ -109,7 +153,12 @@ button {
     margin-bottom: 10px;
 }
 .color-picker {
-    margin-top: 10px;
+
+    display: inline-block;
+}
+
+.text-style {
+    display: inline-block;
 }
 
 .fa {

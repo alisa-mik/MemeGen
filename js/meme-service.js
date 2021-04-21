@@ -24,17 +24,16 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
-    lines: [
-        {
-            txt: '',
-            size: 40,
-            align: 'center',
-            color: '#d3d3d3',
-            strokeStyle: 'black',
-            x: 225,
-            y: 30
+    lines: [{
+        txt: '',
+        size: 40,
+        align: 'center',
+        color: '#d3d3d3',
+        strokeStyle: 'black',
+        x: 225,
+        y: 70
 
-        }
+    }
     ]
 }
 
@@ -58,13 +57,34 @@ function addLine() {
 
 
 function createLine() {
-    return {
-        txt: '',
-        size: 40,
-        align: 'center',
-        color: '#d3d3d3',
-        strokeStyle: 'black',
-        x: 225,
-        y: 30
+    console.log(gMeme.lines.length);
+
+    if (gMeme.lines.length === 1) {
+        return {
+            txt: '',
+            size: 40,
+            align: 'center',
+            color: '#d3d3d3',
+            strokeStyle: 'black',
+            x: 225,
+            y: 420
+        }
+    } else {
+        return {
+            txt: '',
+            size: 40,
+            align: 'center',
+            color: '#d3d3d3',
+            strokeStyle: 'black',
+            x: 225,
+            y: 225
+        }
     }
+}
+
+function removeLine() {
+    console.log(gMeme.selectedLineIdx);
+    // gMeme.lines.splice(gMeme.lines[gMeme.selectedLineIdx], 1)
+    console.log(gMeme.lines);
+
 }
